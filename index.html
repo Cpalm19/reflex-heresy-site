@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>REFLEX HERESY // ACCESS RESTRICTED</title>
+<style>
+    body {
+        background: black;
+        color: #ff1b1b;
+        font-family: "Consolas", monospace;
+        font-size: 20px;
+        padding: 40px;
+        white-space: pre-wrap;
+        overflow: hidden;
+    }
+    .cursor {
+        display: inline-block;
+        width: 10px;
+        background: #ff1b1b;
+        animation: blink 0.8s infinite;
+    }
+    @keyframes blink {
+        0% { opacity: 0 }
+        50% { opacity: 1 }
+        100% { opacity: 0 }
+    }
+</style>
+</head>
+<body>
+
+<div id="terminal"></div><span class="cursor"></span>
+
+<script>
+const BOOT_TEXT = `
+> INITIALIZING REFLEX ENGINE...
+> SIGNAL LOCK.............................. OK
+> NEURAL LATENCY PROFILE................... CLASSIFIED
+> REALTIME CONTROL PIPELINE................ ACTIVE
+> PERMISSIONS CHECK........................ DENIED
+> USER STATUS: UNAUTHORIZED
+
+> ACCESS TO AUTONOMOUS REFLEX SYSTEM IS RESTRICTED
+> SYSTEM REMAINS OFFLINE
+
+> AWAITING PRIMARY AUTHORIZATION KEY...
+`;
+
+let i = 0;
+const SPEED = 35;
+function type() {
+    if (i < BOOT_TEXT.length) {
+        document.getElementById("terminal").textContent += BOOT_TEXT.charAt(i);
+        i++;
+        setTimeout(type, SPEED);
+    }
+}
+type();
+</script>
+
+</body>
+</html>
